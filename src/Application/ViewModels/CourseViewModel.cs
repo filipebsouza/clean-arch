@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CleanArch.Domain.Models;
 
-namespace Application.ViewModels
+namespace CleanArch.Application.ViewModels
 {
     public class CourseViewModel
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CleanArch.Domain.Models;
 
-namespace Domain.Interfaces
+namespace CleanArch.Domain.Interfaces
 {
     public interface ICourseRepository
     {
