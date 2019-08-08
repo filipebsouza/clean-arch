@@ -1,9 +1,11 @@
 
 using CleanArch.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArch.UI.MVC.Controllers
 {
+    [Authorize]
     public class CourseController : Controller
     {
         private readonly ICourseService _courseService;
@@ -15,7 +17,9 @@ namespace CleanArch.UI.MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = _courseService.GetCourses();
+
+            return View(model);
         }
     }
 }
