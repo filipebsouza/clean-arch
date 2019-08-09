@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IoC;
+using MediatR;
 
 namespace CleanArch.UI.MVC
 {
@@ -42,7 +43,7 @@ namespace CleanArch.UI.MVC
                     Configuration.GetConnectionString("UniversityIdentityDBConnection")
                 )
             );
-            
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -54,6 +55,8 @@ namespace CleanArch.UI.MVC
             );
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
         }
